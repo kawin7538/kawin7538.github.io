@@ -17,6 +17,11 @@ Kawin Chinpong
 import pandas as pd
 import numpy as np
 
+def get_station():
+    station=pd.read_csv("country.csv")['country_name']
+    station=[(i+1,station[i]) for i in range(len(station))]
+    return station
+
 def calculate_price(ans):
     #Function that calculate price from starting point to destination
     #This function use for sorting in find_pathway function
@@ -256,10 +261,11 @@ def find_pathway(starting_point,destination,all_lines=False):
         return 3;
     #else return string of step to travel
     else:
-        output= string_Price(find_pathway_until(starting_point,destination))
+        output= string_Price(find_pathway_until(int(starting_point),int(destination)))
         return output
     
 #This condition use to run this file for main file only , for include or import
 #will not run command below
 if __name__ == "__main__":
     print(find_pathway(18,60))
+    #print(get_station())

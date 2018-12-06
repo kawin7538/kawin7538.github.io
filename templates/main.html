@@ -1,0 +1,21 @@
+<html>
+	<head>
+		<title> Main Page Of Train </title>
+	</head>
+	<body>
+		<br>
+		{{ result }}
+		<br>{{ ans }}
+		<form action="{{ url_for('show_answer') }}",method="POST" style="text-align:center">
+			{{ form.starting_point.label}}
+			{{ form.starting_point }}
+			<br><br>
+			{{ form.destination.label }}
+			{{ form.destination }}
+			<br><br>
+			{{ form.submit }}
+		</form>
+	</body>
+
+
+</html>
