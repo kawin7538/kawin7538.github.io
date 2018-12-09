@@ -33,7 +33,7 @@ def show_answer():
 		return index(Errorror="You should choose difference station")
 	else:
 		ans=[i.split('\n') for i in ans]	
-		header = ans[0][1]
+		header = 'Main Page Of Train'
 	return render_template('main.html',ans=ans,form=fform,header=header)
 	
 

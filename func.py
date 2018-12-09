@@ -108,9 +108,39 @@ def string_Price(answer):
     if len(temp_set_output[0].split('\n'))<len(set_output[0].split('\n')) and temp_set_output[0]!=set_output[0]:
         new_set_output.append('For Less Walk Option\n\n'+temp_set_output[0])
     for i in set_output:
-        if i.count('MRT')==0 and i.count('ARL')==0:
+        if i.count('use MRT')==0 and i.count('use ARL')==0:
             if not any(x.count(i)!=0 for x in new_set_output):
                 new_set_output.append('For BTS Lover\n\n'+i)
+                break;
+    for i in set_output:
+        if i.count('use BTS')==0 and i.count('use ARL')==0:
+            if not any(x.count(i)!=0 for x in new_set_output):
+                new_set_output.append('For MRT Lover\n\n'+i)
+                break;
+    for i in set_output:
+        if i.count('use BTS')==0 and i.count('use MRT')==0:
+            if not any(x.count(i)!=0 for x in new_set_output):
+                new_set_output.append('For ARL Lover\n\n'+i)
+                break;
+    for i in set_output:
+        if i.count('use BTS')==0:
+            if not any(x.count(i)!=0 for x in new_set_output):
+                new_set_output.append('For non-addict BTS\n\n'+i)
+                break;
+    for i in set_output:
+        if i.count('use MRT')==0:
+            if not any(x.count(i)!=0 for x in new_set_output):
+                new_set_output.append('For non-addict MRT\n\n'+i)
+                break;
+    for i in set_output:
+        if i.count('use ARL')==0:
+            if not any(x.count(i)!=0 for x in new_set_output):
+                new_set_output.append('For non-addict ARL\n\n'+i)
+                break;
+    for i in set_output:
+        if i.count('use BTS')!=0 and i.count('use MRT')!=0 and i.count('use ARL')!=0:
+            if not any(x.count(i)!=0 for x in new_set_output):
+                new_set_output.append('For All Train Lover\n\n'+i)
                 break;
     #return list of string
     return new_set_output
