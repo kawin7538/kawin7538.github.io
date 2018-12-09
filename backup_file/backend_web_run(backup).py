@@ -9,14 +9,12 @@ from flask import Flask,render_template,request,redirect
 import webbrowser
 from forms import Train_Form
 from func import find_pathway
-from flask_wtf.csrf import CSRFProtect
 
 
 app=Flask(__name__)
-app.config['SECRET_KEY']='ajskdgajsldhfuasfflagw7gf7awg'
-csrf=CSRFProtect(app)
+app.secret_key='ajskdgflagw7gf7awg'
 
-@app.route('/index')
+@app.route('/')
 def index(Errorror="",ans=""):
 	fform=Train_Form()
 	header="Main Page Of Train"
@@ -38,5 +36,5 @@ def show_answer():
 	
 
 if __name__=="__main__":
-	webbrowser.open("http://127.0.0.1:8009/index")
+	webbrowser.open("http://127.0.0.1:8009")
 	app.run(port=8009,debug=True)

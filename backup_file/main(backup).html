@@ -5,21 +5,20 @@
 	<body>
 		{{ Errorror }}
 		<center><h2>Main Page Of Train</h2></center><br>
-		<form methods="POST" action="{{ url_for('show_answer') }}" style="text-align:center">
-			{{ form.csrf_token }}
+		<form action="{{ url_for('show_answer') }}",method="POST" style="text-align:center">
 			{{ form.starting_point.label}}
 			{{ form.starting_point }}
 			<br><br>
 			{{ form.destination.label }}
 			{{ form.destination }}
 			<br><br>
-			<input type="submit" value="Submit">
+			{{ form.submit }}
 		</form>
 		<br>
 		<center><table style="border: 1px solid black; margin:5px">
 			{% for i in ans %}
 				<tr>
-					<td style="border: 1px solid black;padding-top: 20px;padding-left: 15px;padding-right: 15px">
+					<td style="border: 1px solid black;margin:5px">
 						{% for j in i %}
 							{{j}}
 							<br>

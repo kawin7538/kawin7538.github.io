@@ -2,7 +2,7 @@
 """
 Created on Fri Nov 16 18:17:58 2018
 
-Last Modified 12 Dec 2018
+Last Modified 4 Dec 2018
 
 @author: Kawin-PC
 
@@ -49,7 +49,7 @@ def calculate_price(ans):
     #return sum_price outside
     return sum_price
 
-def string_Price(answer):
+def string_Price(ans):
     #Function that convert answer from dictionary form:
     #   location    : list of first and last station in each train_name
     #   train_name  : list of train name used
@@ -67,53 +67,35 @@ def string_Price(answer):
     price=pd.read_csv("trainPrice.csv")
     #Call country from csv file
     country=pd.read_csv("country.csv")
-    #Create set of output
-    set_output=[]
-    #Loop for all available answer
-    for ans in answer:
-        #Define variable output as empty string
-        output=''
-        #Define sum_price as 0
-        sum_price=0
-        #Loop index i for every train_count
-        for i in range(len(ans['train_count'])):
-            #Set output with newline and number i+1
-            output=output+'\n%s. '%(i+1)
-            #Check if train_type is INTER (for walk only)
-            if 'INTER' in ans['train_type'][i]:
-                #Add 'walk 'backward of string 
-                output=output+'walk '
-            else:
-                #Add 'use '+train_name to output
-                output=output+"use %s "%(ans['train_name'][i])
-            #Add 'from SS to DD when SS is country[location[i]-1] and DD is 
-            #country[location[i+1]-1]
-            output=output+"from %s to %s "%(country['country_name'][ans['location'][i]-1],country['country_name'][ans['location'][i+1]-1])
-            #Check if 'INTER' not in train_type[i]
-            if 'INTER' not in ans['train_type'][i]:
-                #Add price backward and add price to sum_price
-                output=output+", %s Baht(s)"%(price[ans['train_name'][i]][ans['train_count'][i]])
-                sum_price=sum_price+price[ans['train_name'][i]][ans['train_count'][i]]
-        #Add sum_price to output
-        output=output+'\n\nSum Price : %s Baht'%(sum_price)
-        #reformatting output = 'from SS to DD'+'sum price XX baht'+output
-        #output='\nFrom %s to %s\n\n'%(country['country_name'][ans['location'][0]-1],country['country_name'][ans['location'][-1]-1])+'Sum Price : %s Baht'%(sum_price)+'\n%s'%(output)
-        output='Sum Price : %s Baht'%(sum_price)+'\n%s'%(output)
-        #append output to set_output
-        set_output.append(output)
-    new_set_output=[]
-    new_set_output.append('Best Offer\n\n'+set_output[0])
-    temp_set_output=set_output.copy()
-    temp_set_output.sort(key=lambda x:x.count('walk'))
-    if len(temp_set_output[0].split('\n'))<len(set_output[0].split('\n')) and temp_set_output[0]!=set_output[0]:
-        new_set_output.append('For Less Walk Option\n\n'+temp_set_output[0])
-    for i in set_output:
-        if i.count('MRT')==0 and i.count('ARL')==0:
-            if not any(x.count(i)!=0 for x in new_set_output):
-                new_set_output.append('For BTS Lover\n\n'+i)
-                break;
-    #return list of string
-    return new_set_output
+    #Define variable output as empty string
+    output=''
+    #Define sum_price as 0
+    sum_price=0
+    #Loop index i for every train_count
+    for i in range(len(ans['train_count'])):
+        #Set output with newline and number i+1
+        output=output+'\n%s. '%(i+1)
+        #Check if train_type is INTER (for walk only)
+        if 'INTER' in ans['train_type'][i]:
+            #Add 'walk 'backward of string 
+            output=output+'walk '
+        else:
+            #Add 'use '+train_name to output
+            output=output+"use %s "%(ans['train_name'][i])
+        #Add 'from SS to DD when SS is country[location[i]-1] and DD is 
+        #country[location[i+1]-1]
+        output=output+"from %s to %s "%(country['country_name'][ans['location'][i]-1],country['country_name'][ans['location'][i+1]-1])
+        #Check if 'INTER' not in train_type[i]
+        if 'INTER' not in ans['train_type'][i]:
+            #Add price backward and add price to sum_price
+            output=output+", %s Baht(s)"%(price[ans['train_name'][i]][ans['train_count'][i]])
+            sum_price=sum_price+price[ans['train_name'][i]][ans['train_count'][i]]
+    #Add sum_price to output
+    output=output+'\n\nSum Price : %s Baht'%(sum_price)
+    #reformatting output = 'from SS to DD'+'sum price XX baht'+output
+    output='\nFrom %s to %s\n\n'%(country['country_name'][ans['location'][0]-1],country['country_name'][ans['location'][-1]-1])+'Sum Price : %s Baht'%(sum_price)+'\n%s'%(output)
+    #return string
+    return output
         
   
 
@@ -257,7 +239,7 @@ def find_pathway_until(starting_point,destination):
     #Sorting element from price return the best price way (return index 0)
     ans.sort(key=lambda x:calculate_price(x))
     print(len(ans))
-    return ans
+    return ans[0]
     
 def find_pathway(starting_point,destination,all_lines=False):
     #Function to check condition of station (input) and run the process
@@ -287,7 +269,5 @@ def find_pathway(starting_point,destination,all_lines=False):
 #This condition use to run this file for main file only , for include or import
 #will not run command below
 if __name__ == "__main__":
-    #print([i for find_pathway(36,26)])
-    for i in find_pathway(36,26):
-        print(i)
+    print(find_pathway(36,26))
     #print(get_station())
