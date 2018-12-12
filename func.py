@@ -18,8 +18,8 @@ import pandas as pd
 import numpy as np
 
 def get_station():
-    station=pd.read_csv("country.csv")['country_name']
-    station=[(i+1,station[i]) for i in range(len(station))]
+    station=pd.read_csv("country.csv")[['country_name','station_open']]
+    station=[(i+1,station['country_name'][i]) for i in range(len(station)) if station['station_open'][i]=='Yes']
     station.sort(key=lambda x:x[1])
     return station
 
@@ -318,6 +318,6 @@ def find_pathway(starting_point,destination,all_lines=False):
 #will not run command below
 if __name__ == "__main__":
     #print([i for find_pathway(36,26)])
-    for i in find_pathway(36,26):
-        print(i)
+    #for i in find_pathway(36,26):
+    print(get_station())
     #print(get_station())

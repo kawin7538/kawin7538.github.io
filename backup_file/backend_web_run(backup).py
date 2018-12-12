@@ -9,16 +9,18 @@ from flask import Flask,render_template,request,redirect
 import webbrowser
 from forms import Train_Form
 from func import find_pathway
+from flask_wtf.csrf import CSRFProtect
 
 
 app=Flask(__name__)
-app.secret_key='ajskdgflagw7gf7awg'
+app.config['SECRET_KEY']='ajskdgajsldhfuasfflagw7gf7awg'
+csrf=CSRFProtect(app)
 
-@app.route('/')
+@app.route('/index')
 def index(Errorror="",ans=""):
 	fform=Train_Form()
 	header="Main Page Of Train"
-	return render_template('main.html',ans=ans,form=fform,header=header,Errorror=Errorror)
+	return render_template('main_beautiful.html',ans=ans,form=fform,header=header,Errorror=Errorror)
 	
 @app.route('/show_answer/',methods=['POST','GET'])
 def show_answer():
@@ -31,10 +33,10 @@ def show_answer():
 		return index(Errorror="You should choose difference station")
 	else:
 		ans=[i.split('\n') for i in ans]	
-		header = ans[0][1]
+		header = 'Main Page Of Train'
 	return render_template('main.html',ans=ans,form=fform,header=header)
 	
 
 if __name__=="__main__":
-	webbrowser.open("http://127.0.0.1:8009")
+	webbrowser.open("http://127.0.0.1:8009/index")
 	app.run(port=8009,debug=True)

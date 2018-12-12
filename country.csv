@@ -1,64 +1,64 @@
-index,country_name
-1,Bangwa
-2,Wutthakat
-3,Talat Phlu
-4,Pho Nimit
-5,Wongwian Yai
-6,Krung Thon Buri
-7,Saphan Taksin
-8,Surasak
-9,Suksa Witthaya
-10,Chong Nonsi
-11,Sala Daeng
-12,Ratchadamri
-13,Siam Silom
-14,National Stadium
-15,Bearing
-16,Bang Na
-17,Udom Suk
-18,Punnawithi
-19,Bang Chak
-20,On Nut
-21,Phra Khanong
-22,Ekkamai
-23,Thong Lo
-24,Phrom Phong
-25,Asok
-26,Nana
-27,Phloen Chit
-28,Chit Lom
-29,Siam Sukhumwit
-30,Ratchathewi
-31,Phaya Thai BTS
-32,Victory Monument
-33,Sanam Pao
-34,Ari
-35,Sena Ruam
-36,Saphan Khwai
-37,Mo Chit
-38,Hua Lamphong
-39,Sam Yan
-40,Si Lom
-41,Lumphini
-42,Khlong Taei
-43,Queen Sirikit National Convention Centre
-44,Sukhumwit
-45,Phetchaburi
-46,Pha Ram 9
-47,Thailand Cultural Centre
-48,Huai Khwang
-49,Sutthisan
-50,Ratchadaphisek
-51,Lat Phrao
-52,Phahon Yothin
-53,Chatuchak Park
-54,Kamphaeng Phet
-55,Bang Sue
-56,Phaya Thai ARL
-57,Ratchaprarop
-58,Makkasan
-59,Ramkhamhaeng
-60,Hua Mak
-61,Ban Thap Chang
-62,Lat Krabang
-63,Suvarnabhumi
+index,country_name,station_open
+1,Bangwa,Yes
+2,Wutthakat,Yes
+3,Talat Phlu,Yes
+4,Pho Nimit,Yes
+5,Wongwian Yai,Yes
+6,Krung Thon Buri,Yes
+7,Saphan Taksin,Yes
+8,Surasak,Yes
+9,Suksa Witthaya,No
+10,Chong Nonsi,Yes
+11,Sala Daeng,Yes
+12,Ratchadamri,Yes
+13,Siam Silom,Yes
+14,National Stadium,Yes
+15,Bearing,Yes
+16,Bang Na,Yes
+17,Udom Suk,Yes
+18,Punnawithi,Yes
+19,Bang Chak,Yes
+20,On Nut,Yes
+21,Phra Khanong,Yes
+22,Ekkamai,Yes
+23,Thong Lo,Yes
+24,Phrom Phong,Yes
+25,Asok,Yes
+26,Nana,Yes
+27,Phloen Chit,Yes
+28,Chit Lom,Yes
+29,Siam,Yes
+30,Ratchathewi,Yes
+31,Phaya Thai BTS,Yes
+32,Victory Monument,Yes
+33,Sanam Pao,Yes
+34,Ari,Yes
+35,Sena Ruam,No
+36,Saphan Khwai,Yes
+37,Mo Chit,Yes
+38,Hua Lamphong,Yes
+39,Sam Yan,Yes
+40,Si Lom,Yes
+41,Lumphini,Yes
+42,Khlong Taei,Yes
+43,Queen Sirikit National Convention Centre,Yes
+44,Sukhumwit,Yes
+45,Phetchaburi,Yes
+46,Pha Ram 9,Yes
+47,Thailand Cultural Centre,Yes
+48,Huai Khwang,Yes
+49,Sutthisan,Yes
+50,Ratchadaphisek,Yes
+51,Lat Phrao,Yes
+52,Phahon Yothin,Yes
+53,Chatuchak Park,Yes
+54,Kamphaeng Phet,Yes
+55,Bang Sue,Yes
+56,Phaya Thai ARL,Yes
+57,Ratchaprarop,Yes
+58,Makkasan,Yes
+59,Ramkhamhaeng,Yes
+60,Hua Mak,Yes
+61,Ban Thap Chang,Yes
+62,Lat Krabang,Yes
+63,Suvarnabhumi,Yes
